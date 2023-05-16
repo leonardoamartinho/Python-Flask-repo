@@ -1,0 +1,21 @@
+<!-- python "for" structure-->
+
+for element in list:
+    print(element)
+
+<!-- python "for" structure in HTML-->
+
+{% for fruit in fruit_list %}
+
+    <li>{{fruit}}</li>
+    
+{% endfor %}
+
+<!-- python dictionary-->
+
+grades = {"Leo":5.0, "Rick":5.2, "Arthur":5.5, "Matheus":6.0}
+
+<!-- python "for" structure (dictionary)-->
+for key, value in grades.items():
+    print(key)
+    print(value)

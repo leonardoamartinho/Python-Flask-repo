@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="text-align: center;">Teacher's Diary</h2>
+<hr>
+    {% for record in records %}
+        <!-- <details>
+            <summary>{{record.student}}</summary>
+            <p>{{record.grade}}</p>
+        </details> -->
+        <p>
+            <a class="btn btn-secondary" data-bs-toggle="collapse" href="#collapseExample_{{record.student}}" role="button" aria-expanded="false" aria-controls="record.student">
+              {{record.student}}
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample_{{record.student}}">
+            <div class="card card-body">
+              {{record.grade}}
+            </div>
+          </div>
+    {% endfor %}
+
+    <form action="{{url_for('teacher_diary')}}" method="POST">
+        <div class="form-groups">
+            <label for="exampleStudent">Student</label>
+            <input class="form-control" id="exampleStundet" title="student" type="text" name="student" required placeholder="Type the name of a Student">
+        </div>
+        <div class="form-groups">
+            <label for="exampleGrade">Grade</label>
+            <input class="form-control" id="exampleGrade" title="grade" type="text" name="grade" required placeholder="Type the grade of this Student">
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+    </form>
+{% endblock content %}
